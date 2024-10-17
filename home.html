@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lung Disease Prediction</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(247,236,232,255);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        .transparent-box {
+            background-color: rgba(247,236,232,255);
+            border-radius: 20px;
+            padding: 40px;
+            width: 600px;
+            height: 350px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.0);
+            text-align: center;
+            margin-left: 50px; /* Add space between image and box */
+        }
+
+        h1 {
+            margin-top : 1px;
+            font-family: Garamond;
+            color: #22211f;
+            font-size: 40px;
+        }
+
+        p {
+            margin-top: 18px;
+            font-family: Roboto;
+            color: #22211f;
+            font-size: 15px;
+        }
+
+        input[type="file"] {
+            display: none; /* Hide the default file input */
+        }
+
+        .label-file-upload {
+            display: inline-block;
+            padding: 8px 16px;
+            background-color: rgb(230,27,28); /* Change this color as needed */
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-bottom: 10px;
+            font-size: 20px;
+            font-family: 'Trebuchet MS', sans-serif;
+            margin-top: 50px;
+        }
+
+        #submit-button {
+            background-color: #ed8163; /* Change this color as needed */
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 20px;
+            font-family: 'Trebuchet MS', sans-serif;
+        }
+
+        .label-file-upload:hover,
+        #submit-button:hover {
+            opacity: 0.9; /* Change opacity on hover */
+        }
+
+        .image-box img {
+            width: 350px; /* Set the width of the image */
+            height: 450px; /* Set the height of the image */
+            object-fit: cover; /* Ensure the image fits within the box */
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Image beside the transparent box -->
+        <div class="image-box">
+            <img src="\static\hg99.jpeg" alt="Lung Disease Image"> <!-- Replace with your actual image source -->
+        </div>
+
+        <!-- Transparent Box -->
+        <div class="transparent-box">
+            <h1>Lung Disease Prediction Web Application Using Image Texture Analysis in Orange</h1>
+            <p>The Lung Disease Prediction Web Application utilizes image texture analysis to identify lung diseases from medical images. Built using Orange, a data visualization and analysis tool, the application preprocesses images to extract significant features, including texture and intensity.Users can upload images, which are analyzed in real-time, yielding predictions such as normal or lung opacity. The application aims to enhance diagnostic accuracy and provide timely health insights.</p>
+            <form action="/" method="post" enctype="multipart/form-data">
+                <label for="file-upload" class="label-file-upload">Choose File</label>
+                <input type="file" name="file" accept="image/*" required id="file-upload" onchange="updateFileName()">
+                <span id="file-name" style="margin-left: 10px; font-weight: bold;"></span> <!-- Span to display the file name -->
+                <input type="submit" value="Upload Image" id="submit-button">
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function updateFileName() {
+            const fileInput = document.getElementById('file-upload');
+            const fileNameSpan = document.getElementById('file-name');
+            // Get the selected file name
+            if (fileInput.files.length > 0) {
+                fileNameSpan.textContent = fileInput.files[0].name; // Display the file name
+            } else {
+                fileNameSpan.textContent = ''; // Clear the file name if no file is selected
+            }
+        }
+    </script>
+</body>
+</html>
